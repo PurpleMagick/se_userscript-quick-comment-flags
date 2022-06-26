@@ -1,0 +1,29 @@
+{
+	"compilerOptions": {
+		"alwaysStrict": true,
+		"baseUrl": "./src",
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"lib": ["DOM", "DOM.Iterable", "ESNext"],
+		"module": "ES2020",
+		"moduleResolution": "node",
+		"noEmitOnError": true,
+		"noErrorTruncation": true,
+		"noImplicitAny": true,
+		"noImplicitThis": true,
+		"outDir": "dist",
+		"paths": {
+			"@types/*" : ["types/*"],
+			"@types" : ["types/index.d.ts"]
+		},
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "es2021",
+		"typeRoots": ["src/types"],
+		"types": [
+			"@userscripters/stackexchange-global-types"
+		]
+	 },
+	"exclude": ["dist"],
+	"include": ["src"]
+}

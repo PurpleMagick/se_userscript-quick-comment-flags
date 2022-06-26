@@ -1,0 +1,26 @@
+{
+  "name": "so-quick-comment-flags",
+  "version": "0.0.1",
+  "description": "userscript that allows one-click flagging for comments",
+  "scripts": {
+    "lint": "eslint src --fix --ext .js,.ts",
+    "clean": "rm -rf dist/*",
+    "headers": "generate-headers violentmonkey --namespace 'https://github.com/PurpleMagick/' --run 'end' --match all meta 'https://domain/questions/*'  --output './dist/headers.js'",
+    "prebuild": "npm run clean",
+    "build": "npm run headers && webpack",
+    "postbuild": "eslint dist --fix --ext .js"
+  },
+  "author": "VLAZ",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "@userscripters/generate-headers": "^3.3.1",
+    "@userscripters/stackexchange-global-types": "^2.4.2",
+    "eslint": "^8.18.0",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
