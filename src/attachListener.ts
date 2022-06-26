@@ -50,7 +50,7 @@ export const attachListener = () =>
 		try {
 			const result = await doFlag(commentId, Number(flagType) as FlagType);
 			if (result.Success) {
-				StackExchange.helpers.showToast("Flag sent", { type: "success", transientTimeout: 3000 });
+				StackExchange.helpers.showToast("Flag sent", { type: "success", transientTimeout: 5000 });
 				if (result.ResultChangedState) { // flag caused a deletion
 					comment.remove();
 				} else {
