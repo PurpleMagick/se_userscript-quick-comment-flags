@@ -1,3 +1,5 @@
 export const enum FlagType {
-	NoLongerNeeded = 39
+	RudeOrOffensive = 20,
+	UnfriendlyOrUnkind = 40,
+	NoLongerNeeded = 39,
 }

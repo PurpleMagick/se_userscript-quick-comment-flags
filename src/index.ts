@@ -1,5 +1,5 @@
 import { attachListener } from "./attachListener";
-import { main } from "./makeFlag";
+import { main } from "./addFlags";
 
 $(document).ajaxComplete(main);
 main();
