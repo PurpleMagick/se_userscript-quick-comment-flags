@@ -8,13 +8,6 @@ const isResponse = (obj: unknown): obj is Response =>
 		&& "statusText" in obj;
 
 function doFlag(commentId: string, flagTypeId: FlagType): Promise<CommentFlagResponse> {
-	/*
-	const formData = new FormData();
-
-	formData.append("fkey", StackExchange.options.user.fkey);
-	formData.append("otherText", "");
-	formData.append("overrideWarning", "true");
-	*/
 	const data = new URLSearchParams({fkey: StackExchange.options.user.fkey, otherText: "", overrideWarning: "true"});
 	return fetch(`/flags/comments/${commentId}/add/${flagTypeId}`, {
 		method: "POST",
