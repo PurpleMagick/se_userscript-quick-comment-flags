@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
@@ -9,10 +10,13 @@ module.exports = {
 		module: true,
 	},
 	devtool: false,
-	mode: "production",
+	watchOptions: {
+		poll: 1000,
+	},
+	mode: "none",
 	plugins: [
 		new webpack.BannerPlugin({
-			banner: fs.readFileSync("./dist/headers.js", "utf-8"),
+			banner: fs.readFileSync(path.join("temp", "headers.js"), "utf-8"),
 			raw: true,
 		}),
 	],
@@ -27,10 +31,21 @@ module.exports = {
 	experiments: {
 		outputModule: true
 	},
+	devServer: {
+		hot: false,
+		liveReload: false,
+		webSocketServer: false,
+		static: {
+			directory: path.join(__dirname, "dist"),
+		},
+		compress: false,
+		port: 8080,
+	},
 	module: {
 		rules: [
 			{
-				test: /\.ts$/, loader: "ts-loader"
+				test: /\.ts$/,
+				loader: "ts-loader"
 			}
 		]
 	}
